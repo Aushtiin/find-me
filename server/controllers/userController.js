@@ -6,7 +6,7 @@ const { signUp } = SignUserUp;
 
 const userSignUp = async (req, res, next) => {
     try {
-        const { email, password,  } = req.body; console.log('ha');
+        const { email, password,  } = req.body; 
         await signUp(req, res, email, password, );
     } catch (error) {
         return next(error);
