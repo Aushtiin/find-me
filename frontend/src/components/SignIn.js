@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 import { signInService } from '../services/Auth';
+import { message } from 'antd';
 
-const SignIn = () => {
+const SignIn = ({history, updateGlobalAuth}) => {
     const [state, setState] = useState({
         email: "",
         password: "",
@@ -11,7 +12,10 @@ const SignIn = () => {
 
     const submit = (event) => {
         event.preventDefault()
-        signInService(state)
+        signInService(state);
+        message.success('Log In Successful', [1])
+        updateGlobalAuth(true)
+        return history.push('/')
     }
 
     const handleChange = (event) => {

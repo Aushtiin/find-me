@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
-import { signUpService } from '../services/Auth'
+import { signUpService } from '../services/Auth';
+import { message } from 'antd'
 
-const SignUp = () => {
+const SignUp = ({history}) => {
     const [state, setState] = useState({
         email: "",
         password: "",
@@ -11,7 +12,9 @@ const SignUp = () => {
 
     const submit = async (event) => {
         event.preventDefault()
-        await signUpService(state)
+        await signUpService(state);
+        message.success("Sign Up Successful", [2]);
+        history.push('/signIn')
     }
 
     const handleChange = (event) => {

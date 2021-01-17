@@ -1,14 +1,15 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, useHistory, Route } from 'react-router-dom'
 import SignIn from "./components/SignIn";
 import HomeScreen from "./components/HomeScreen";
 import SignUp from "./components/SignUp";
 
 
 const App = () => {
+  const history = useHistory();
   return (
-    <Router>
+    <Router history={history}>
       <Header/>
       <main>
         <Switch>
